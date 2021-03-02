@@ -15,7 +15,7 @@ admin.initializeApp();
 
 exports.addMessage = functions.https.onRequest(async (req: any, res: any) => {
     const original = req.query.text;
-    const writeResult = await admin.firestore().collection('message').add({original: original});
+    const writeResult = await admin.firestore().collection('messages').add({original: original});
     res.json({result: `Message with ID: ${writeResult.id} added.`});
 })
 
